@@ -5,6 +5,8 @@
  */
 package br.edu.utfpr.attendizepageobject;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -26,5 +28,13 @@ public class BasePage {
     
     public String getCurrentTitle(){
         return driver.getTitle();
+    }
+    
+    public void sleep(long milis){
+        try {
+            Thread.sleep(milis);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(BasePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -5,6 +5,7 @@
  */
 package br.edu.utfpr.attendizepageobject;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author daphnemillss
  */
-public class OrganiserMenu {
+public class OrganiserMenu extends BasePage{
     @FindBy(xpath = "//*[@id=\"nav\"]/li[1]/a")
     WebElement dashboard;
     
@@ -21,16 +22,14 @@ public class OrganiserMenu {
     
     @FindBy(xpath = "//*[@id=\"nav\"]/li[3]/a")
     WebElement customize;
-    
-    public void irParaDashboard(){
-        dashboard.click();
+
+    public OrganiserMenu(WebDriver driver) {
+        super(driver);
     }
     
-    public void irParaEvent(){
-        event.click();
-    }
+    public void irParaDashboard(){dashboard.click();}
     
-    public void irParaCustomize(){
-        customize.click();
-    }
+    public void irParaEvent(){event.click();}
+    
+    public void irParaCustomize(){customize.click();}
 }

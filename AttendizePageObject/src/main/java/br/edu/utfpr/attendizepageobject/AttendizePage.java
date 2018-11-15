@@ -18,13 +18,12 @@ public class AttendizePage extends BasePage{
     
     public AttendizePage(WebDriver driver) {
         super(driver);
+        
+        dropMenu = new DropdownMenu(driver);
+        orgMenu = new OrganiserMenu(driver);
     }
     
-    public DropdownMenu getDropMenu() {
-        return dropMenu;
-    }
+    public DropdownMenu getDropMenu(){return dropMenu;}
     
-    public OrganiserMenu getOrgMenu(){
-        return orgMenu;
-    }
+    public OrganiserMenu getOrgMenu(){return orgMenu;}
 }
