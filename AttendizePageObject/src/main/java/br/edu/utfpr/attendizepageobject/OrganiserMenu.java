@@ -27,9 +27,17 @@ public class OrganiserMenu extends BasePage{
         super(driver);
     }
     
-    public void irParaDashboard(){dashboard.click();}
+    public DashboardPage irParaDashboard(){
+        dashboard.click();
+        return new DashboardPage(driver);
+    }
     
-    public void irParaEvent(){event.click();}
+    public EventsPage irParaEvent(){
+        event.click();
+        return new EventsPage(driver);
+    }
     
-    public void irParaCustomize(){customize.click();}
+    public void irParaCustomize(){
+        customize.click();
+    }
 }

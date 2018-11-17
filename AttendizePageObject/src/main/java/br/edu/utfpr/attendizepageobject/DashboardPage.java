@@ -29,4 +29,8 @@ public class DashboardPage extends AttendizePage{
         
         return new LoginPage(driver);
     }
+    
+    public EventsPage clicarEmEvent(){
+        return getOrgMenu().irParaEvent();
+    }
 }
