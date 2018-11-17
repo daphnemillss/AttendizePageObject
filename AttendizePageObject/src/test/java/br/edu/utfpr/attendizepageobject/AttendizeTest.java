@@ -97,4 +97,20 @@ public class AttendizeTest {
        
        assertTrue(tickets.criouTicket());
     }
+    
+    @Test
+    @Ignore
+    public void CT04(){
+        TicketsPage tickets = login.
+                              preencherLogin(email, senha).
+                              clicarEmLogin().
+                              clicarEmEvent().
+                              clicarNoPrimeiroEvento().
+                              clicarEmTickets().
+                              clicarNoPrimeiroTicket().
+                              editarPrecoDoTicketPara("10.00").
+                              salvarTicket();
+                              
+        assertEquals("€10.00", tickets.verNovoPreco());
+    }
 }

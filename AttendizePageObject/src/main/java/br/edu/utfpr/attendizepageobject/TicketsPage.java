@@ -38,6 +38,12 @@ class TicketsPage extends AttendizePage{
     @FindBy(className = "humane")
     WebElement msgSucesso;
     
+    @FindBy(xpath = "//*[@id=\"ticket_2\"]/div/div[1]")
+    WebElement firstTicket;
+    
+    @FindBy(xpath = "//*[@id=\"ticket_2\"]/div/div[1]/h3/span")
+    WebElement firstTicketPrice;
+    
     public TicketsPage clicarEmCreateTicket(){
         buttonCreateTicket.click();
         
@@ -65,4 +71,27 @@ class TicketsPage extends AttendizePage{
         return msgSucesso.isDisplayed();
     }
     
+    public TicketsPage clicarNoPrimeiroTicket(){
+        firstTicket.click();
+        
+        return this;
+    }
+    
+    public TicketsPage editarPrecoDoTicketPara(String novoPreco){
+        inputPrecoDoTicket.clear();
+        inputPrecoDoTicket.sendKeys(novoPreco);
+        
+        return this;
+    }
+    
+    public TicketsPage salvarTicket(){
+        criarTicket.click();
+        
+        return this;
+    }
+    
+    public String verNovoPreco(){
+        sleep(2000);
+        return firstTicketPrice.getText();
+    }
 }
