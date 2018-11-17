@@ -101,6 +101,8 @@ public class AttendizeTest {
     @Test
     @Ignore
     public void CT04(){
+        String novoPreco = "50.00";
+        
         TicketsPage tickets = login.
                               preencherLogin(email, senha).
                               clicarEmLogin().
@@ -108,9 +110,26 @@ public class AttendizeTest {
                               clicarNoPrimeiroEvento().
                               clicarEmTickets().
                               clicarNoPrimeiroTicket().
-                              editarPrecoDoTicketPara("10.00").
+                              editarPrecoDoTicketPara(novoPreco).
                               salvarTicket();
                               
-        assertEquals("€10.00", tickets.verNovoPreco());
+        assertEquals("€"+novoPreco, tickets.verNovoPreco());
+    }
+    
+    @Test
+    //@Ignore
+    public void CT05(){
+        String novoTitulo = "Teste";
+        EventOficialPage oficial = login.
+                                       preencherLogin(email, senha).
+                                       clicarEmLogin().
+                                       clicarEmEvent().
+                                       clicarNoPrimeiroEvento().
+                                       clicarEmCustomize().
+                                       editarCamposCom(novoTitulo, "Mudei", "", "", "Cornélio Procópio").
+                                       salvarMudancas().
+                                       irParaPaginaDoEvento();
+        
+        assertEquals(novoTitulo+" - Attendize.com",oficial.getCurrentTitle());
     }
 }

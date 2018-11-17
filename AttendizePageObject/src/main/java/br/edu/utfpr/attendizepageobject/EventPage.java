@@ -18,6 +18,9 @@ public class EventPage extends AttendizePage{
     @FindBy(xpath = "//*[@id=\"nav_event\"]/li[2]/a")
     WebElement ticketsButton;
     
+    @FindBy(xpath = "//*[@id=\"nav_event\"]/li[6]/a")
+    WebElement customizeButton;
+    
     public EventPage(WebDriver driver) {
         super(driver);
     }
@@ -26,6 +29,12 @@ public class EventPage extends AttendizePage{
         ticketsButton.click();
         
         return new TicketsPage(driver);
+    }
+    
+    public CustomizeEventPage clicarEmCustomize(){
+        customizeButton.click();
+        
+        return new CustomizeEventPage(driver);
     }
     
 }
