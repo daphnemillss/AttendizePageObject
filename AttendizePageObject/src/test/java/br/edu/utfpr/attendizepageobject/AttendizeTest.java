@@ -18,6 +18,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.FindBy;
 
 /**
  *
@@ -45,7 +46,7 @@ public class AttendizeTest {
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        driver.get("http://192.168.0.106/");
+        driver.get("http://192.168.0.102/");
         login = new LoginPage(driver);
     }
     
@@ -151,5 +152,21 @@ public class AttendizeTest {
         assertTrue(events.naoAchouNada());
     }
     
-    
+    @Test
+    @Ignore
+    public void CT07(){
+        AttendeesPage attendees = login.
+                                  preencherLogin(email, senha).
+                                  clicarEmLogin().
+                                  clicarEmEvent().
+                                  clicarNoPrimeiroEvento().
+                                  clicarEmAttendees().
+                                  clicarEmInviteAttendees().
+                                  preencherCamposCom("teste", "Tester", "da Silva", "testerdasilva@gmail.com").
+                                  confirmarInvite().
+                                  cancelarAttendee().
+                                  confirmarCancelamento();
+        
+        assertTrue(attendees.excluiuAttendee());
+    }
 }
