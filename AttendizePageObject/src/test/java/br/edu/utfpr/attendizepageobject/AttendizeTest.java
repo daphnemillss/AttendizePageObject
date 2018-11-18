@@ -169,4 +169,20 @@ public class AttendizeTest {
         
         assertTrue(attendees.excluiuAttendee());
     }
+    
+    @Test
+    @Ignore
+    public void CT08(){
+        SurveysPage surveys = login.
+                          preencherLogin(email, senha).
+                          clicarEmLogin().
+                          clicarEmEvent().
+                          clicarNoPrimeiroEvento().
+                          clicarEmSurveys().
+                          clicarEmAddQuestion().
+                          preencherCamposCom("What's your name?", "Single-line text box").
+                          criarQuestao();
+        
+        assertTrue(surveys.criouQuestao());
+    }
 }

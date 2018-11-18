@@ -5,6 +5,7 @@
  */
 package br.edu.utfpr.attendizepageobject;
 
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +17,7 @@ import org.openqa.selenium.support.FindBy;
 public class EventPage extends AttendizePage{
     
     @FindBy(xpath = "//*[@id=\"nav_event\"]/li[2]/a")
-    WebElement ticketsButton;
+    List<WebElement> list;
     
     @FindBy(xpath = "//*[@id=\"nav_event\"]/li[6]/a")
     WebElement customizeButton;
@@ -29,7 +30,7 @@ public class EventPage extends AttendizePage{
     }
     
     public TicketsPage clicarEmTickets(){
-        ticketsButton.click();
+        list.get(0).click();
         
         return new TicketsPage(driver);
     }
@@ -45,4 +46,12 @@ public class EventPage extends AttendizePage{
         
         return new AttendeesPage(driver);
     }
+    
+    public SurveysPage clicarEmSurveys(){
+        list.get(1).click();
+        sleep(3000);
+        return new SurveysPage(driver);
+    }
+    
+    
 }
