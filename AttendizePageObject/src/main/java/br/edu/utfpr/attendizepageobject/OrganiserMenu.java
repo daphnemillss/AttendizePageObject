@@ -37,7 +37,9 @@ public class OrganiserMenu extends BasePage{
         return new EventsPage(driver);
     }
     
-    public void irParaCustomize(){
+    public CustomizeOrganiserPage irParaCustomize(){
         customize.click();
+        
+        return new CustomizeOrganiserPage(driver);
     }
 }

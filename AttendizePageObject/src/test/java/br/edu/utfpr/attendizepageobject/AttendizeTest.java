@@ -201,4 +201,17 @@ public class AttendizeTest {
         
         assertTrue(customize.mudouImgDoEvento());
     }
+    
+    @Test
+    //@Ignore
+    public void CT10(){
+        CustomizeOrganiserPage customize = login.
+                                           preencherLogin(email, senha).
+                                           clicarEmLogin().
+                                           clicarEmCustomize().
+                                           preencherCamposCom("Teste", "Testando").
+                                           salvarMudancas();
+        
+        assertTrue(customize.salvouMudancas());
+    }
 }

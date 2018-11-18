@@ -33,4 +33,8 @@ public class DashboardPage extends AttendizePage{
     public EventsPage clicarEmEvent(){
         return getOrgMenu().irParaEvent();
     }
+    
+    public CustomizeOrganiserPage clicarEmCustomize(){
+        return getOrgMenu().irParaCustomize();
+    }
 }
