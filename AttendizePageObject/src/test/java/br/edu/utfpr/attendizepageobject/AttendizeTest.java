@@ -9,6 +9,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -117,7 +118,7 @@ public class AttendizeTest {
     }
     
     @Test
-    //@Ignore
+    @Ignore
     public void CT05(){
         String novoTitulo = "Teste";
         EventOficialPage oficial = login.
@@ -132,4 +133,23 @@ public class AttendizeTest {
         
         assertEquals(novoTitulo+" - Attendize.com",oficial.getCurrentTitle());
     }
+    
+    @Test
+    @Ignore
+    public void CT06(){
+        EventsPage events = login.
+                            preencherLogin(email, senha).
+                            clicarEmLogin().
+                            clicarEmEvent().
+                            preencherCampoDeBuscaCom("Teste").
+                            clicarNaLupa();
+        
+        assertTrue(events.achouAlgo());
+        
+        events = events.preencherCampoDeBuscaCom("Nao vai achar nada").clicarNaLupa();
+        
+        assertTrue(events.naoAchouNada());
+    }
+    
+    
 }

@@ -51,6 +51,16 @@ public class EventsPage extends AttendizePage{
     @FindBy(xpath = "/html/body/div[2]/form/div/div/div[2]/div/div/div[2]/div[2]/div[6]")
     WebElement divDesc;
     
+    @FindBy(name = "q")
+    WebElement inputSearch;
+    
+    @FindBy(className = "ico-search")
+    WebElement buttonSearch;
+    
+    @FindBy(tagName = "h5")
+    WebElement nothingFound;
+
+    
     public EventsPage clicarEmCreateEvent(){
         buttonCreateEvent.click();
         
@@ -86,7 +96,29 @@ public class EventsPage extends AttendizePage{
         return this;
     }
     
+    public EventsPage preencherCampoDeBuscaCom(String busca){
+        inputSearch.clear();
+        inputSearch.sendKeys(busca);
+        
+        return this;
+    }
+    
+    public EventsPage clicarNaLupa(){
+        buttonSearch.click();
+        sleep(2000);
+        
+        return this;
+    }
+    
     public boolean criouEvento(){
         return dialogBox.isDisplayed();
+    }
+    
+    public boolean achouAlgo(){
+        return firstEvent.isDisplayed();
+    }
+    
+    public boolean naoAchouNada(){
+        return nothingFound.isDisplayed();
     }
 }
