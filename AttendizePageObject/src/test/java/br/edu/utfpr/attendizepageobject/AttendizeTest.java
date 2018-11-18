@@ -185,4 +185,20 @@ public class AttendizeTest {
         
         assertTrue(surveys.criouQuestao());
     }
+    
+    @Test
+    @Ignore
+    public void CT09(){
+        CustomizeEventPage customize = login.
+                                  preencherLogin(email, senha).
+                                  clicarEmLogin().
+                                  clicarEmEvent().
+                                  clicarNoPrimeiroEvento().
+                                  clicarEmCustomize().
+                                  abrirAbaEventDesign().
+                                  escolherImgAleatoria().
+                                  salvarImgEscolhida();
+        
+        assertTrue(customize.mudouImgDoEvento());
+    }
 }
