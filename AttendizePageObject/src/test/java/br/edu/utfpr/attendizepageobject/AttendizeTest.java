@@ -13,12 +13,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.FindBy;
 
 /**
  *
@@ -45,8 +43,6 @@ public class AttendizeTest {
         chromeOptions.addArguments("start-maximized");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        driver.get("http://192.168.0.102/");
         login = new LoginPage(driver);
     }
     
@@ -55,7 +51,7 @@ public class AttendizeTest {
         driver.close();
     }
 
-    @Test @Ignore
+    @Test 
     public void CT01(){
         login = login.
                 preencherLogin(email, senha).
@@ -67,7 +63,7 @@ public class AttendizeTest {
     }
     
     @Test
-    @Ignore
+    
     public void CT02(){
         EventsPage event = login.
                           preencherLogin(email, senha).
@@ -86,7 +82,7 @@ public class AttendizeTest {
     }
     
     @Test
-    @Ignore
+    
     public void CT03(){
        TicketsPage tickets = login.preencherLogin(email, senha).
                              clicarEmLogin().
@@ -101,7 +97,7 @@ public class AttendizeTest {
     }
     
     @Test
-    @Ignore
+    
     public void CT04(){
         String novoPreco = "50.00";
         
@@ -119,7 +115,7 @@ public class AttendizeTest {
     }
     
     @Test
-    @Ignore
+    
     public void CT05(){
         String novoTitulo = "Teste";
         EventOficialPage oficial = login.
@@ -136,7 +132,7 @@ public class AttendizeTest {
     }
     
     @Test
-    @Ignore
+    
     public void CT06(){
         EventsPage events = login.
                             preencherLogin(email, senha).
@@ -153,7 +149,7 @@ public class AttendizeTest {
     }
     
     @Test
-    @Ignore
+    
     public void CT07(){
         AttendeesPage attendees = login.
                                   preencherLogin(email, senha).
@@ -171,7 +167,7 @@ public class AttendizeTest {
     }
     
     @Test
-    @Ignore
+    
     public void CT08(){
         SurveysPage surveys = login.
                           preencherLogin(email, senha).
@@ -187,7 +183,6 @@ public class AttendizeTest {
     }
     
     @Test
-    @Ignore
     public void CT09(){
         CustomizeEventPage customize = login.
                                   preencherLogin(email, senha).
@@ -203,7 +198,7 @@ public class AttendizeTest {
     }
     
     @Test
-    //@Ignore
+    
     public void CT10(){
         CustomizeOrganiserPage customize = login.
                                            preencherLogin(email, senha).

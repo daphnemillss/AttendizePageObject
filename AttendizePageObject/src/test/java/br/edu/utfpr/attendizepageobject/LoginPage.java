@@ -17,6 +17,7 @@ public class LoginPage extends AttendizePage{
     
     public LoginPage(WebDriver driver) {
         super(driver);
+        driver.get("http://169.254.3.124/");
     }
     
     @FindBy(id = "email")
